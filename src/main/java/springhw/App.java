@@ -1,6 +1,7 @@
 package springhw;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import springhw.Printer.Printer;
 import springhw.beans.HelloBean;
 
 public class App {
@@ -10,8 +11,9 @@ public class App {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         // Считываем бин (объект)
         HelloBean hb = ctx.getBean("firstBean", HelloBean.class);
+        Printer printer= Printer.getInitPrinter();
         // Печатаем объект в консоль
-        System.out.println(hb);
+        printer.print(hb);
         // Закрываем контекст приложения 
         ctx.close();
 	}
